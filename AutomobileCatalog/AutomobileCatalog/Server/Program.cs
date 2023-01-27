@@ -1,4 +1,5 @@
 using AutomobileCatalog.Server.Core;
+using AutomobileCatalog.Server.Infrastructure;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,12 +14,20 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer("Server=.;Database=AutomobileCatalogDB ;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=False");
 });
 
+builder.Services.AddAutoMapper(typeof(AppAutoMapper).Assembly);
+
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<MakeRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseWebAssemblyDebugging();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 else
 {

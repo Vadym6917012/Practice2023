@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutomobileCatalog.Server.Core\AutomobileCatalog.Server.Core.csproj" />
+    <ProjectReference Include="..\AutomobileCatalog\Shared\AutomobileCatalog.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

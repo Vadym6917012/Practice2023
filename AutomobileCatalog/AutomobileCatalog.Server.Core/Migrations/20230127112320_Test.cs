@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace AutomobileCatalog.Server.Core.Migrations
 {
     /// <inheritdoc />
@@ -101,6 +103,16 @@ namespace AutomobileCatalog.Server.Core.Migrations
                         principalTable: "Vehicles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Makes",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "BMW" },
+                    { 2, "Mercedes" },
+                    { 3, "Toyota" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -15,6 +15,12 @@ namespace AutomobileCatalog.Server.Core
         
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Seed();
+            base.OnModelCreating(builder);
+        }
+
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Make> Makes { get; set; }
         public DbSet<Model> Models { get; set; }

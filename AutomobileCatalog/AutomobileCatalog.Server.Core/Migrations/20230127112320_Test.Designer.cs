@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutomobileCatalog.Server.Core.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230126154034_Test")]
+    [Migration("20230127112320_Test")]
     partial class Test
     {
         /// <inheritdoc />
@@ -39,6 +39,23 @@ namespace AutomobileCatalog.Server.Core.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Makes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "BMW"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Mercedes"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Toyota"
+                        });
                 });
 
             modelBuilder.Entity("AutomobileCatalog.Server.Core.Model", b =>

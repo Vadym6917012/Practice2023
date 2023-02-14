@@ -11,17 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{01DAE4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{F7398DCF-6CC1-41A8-AA75-839820F962A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomobileCatalog.Server.Core", "AutomobileCatalog.Server.Core\AutomobileCatalog.Server.Core.csproj", "{0F99C1C0-11B6-4E83-A995-8866B4DFC66E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomobileCatalog.Server.Core", "AutomobileCatalog.Server.Core\AutomobileCatalog.Server.Core.csproj", "{0F99C1C0-11B6-4E83-A995-8866B4DFC66E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomobileCatalog.Server.Infrastructure", "AutomobileCatalog.Server.Infrastructure\AutomobileCatalog.Server.Infrastructure.csproj", "{B6E436BD-308A-4C21-887E-53F3AD9AA647}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomobileCatalog.Server.Infrastructure", "AutomobileCatalog.Server.Infrastructure\AutomobileCatalog.Server.Infrastructure.csproj", "{B6E436BD-308A-4C21-887E-53F3AD9AA647}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomobileCatalog.Client.Infrastructure", "AutomobileCatalog.Client.Infrastructure\AutomobileCatalog.Client.Infrastructure.csproj", "{F7FD9B72-17CF-4948-8C54-E19871F88091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomobileCatalog.Client.Infrastructure", "AutomobileCatalog.Client.Infrastructure\AutomobileCatalog.Client.Infrastructure.csproj", "{F7FD9B72-17CF-4948-8C54-E19871F88091}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomobileCatalog.Server", "AutomobileCatalog\Server\AutomobileCatalog.Server.csproj", "{A3F5B507-EFB8-4E83-A283-4C678CD5376C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomobileCatalog.Server", "AutomobileCatalog\Server\AutomobileCatalog.Server.csproj", "{A3F5B507-EFB8-4E83-A283-4C678CD5376C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomobileCatalog.Client", "AutomobileCatalog\Client\AutomobileCatalog.Client.csproj", "{0BCB7846-3A84-4DE6-B246-0CB1C9041822}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomobileCatalog.Shared", "AutomobileCatalog\Shared\AutomobileCatalog.Shared.csproj", "{4F3A8A30-AEC7-41C1-B02E-29DB2CD38460}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomobileCatalog.Shared", "AutomobileCatalog\Shared\AutomobileCatalog.Shared.csproj", "{4F3A8A30-AEC7-41C1-B02E-29DB2CD38460}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +43,6 @@ Global
 		{A3F5B507-EFB8-4E83-A283-4C678CD5376C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3F5B507-EFB8-4E83-A283-4C678CD5376C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3F5B507-EFB8-4E83-A283-4C678CD5376C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BCB7846-3A84-4DE6-B246-0CB1C9041822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BCB7846-3A84-4DE6-B246-0CB1C9041822}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BCB7846-3A84-4DE6-B246-0CB1C9041822}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BCB7846-3A84-4DE6-B246-0CB1C9041822}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F3A8A30-AEC7-41C1-B02E-29DB2CD38460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4F3A8A30-AEC7-41C1-B02E-29DB2CD38460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F3A8A30-AEC7-41C1-B02E-29DB2CD38460}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,7 +59,6 @@ Global
 		{B6E436BD-308A-4C21-887E-53F3AD9AA647} = {01DAE482-1CED-45B9-B198-86E3686DB32A}
 		{F7FD9B72-17CF-4948-8C54-E19871F88091} = {583B8941-1480-4E0E-BC0A-FF93DFA64EAF}
 		{A3F5B507-EFB8-4E83-A283-4C678CD5376C} = {01DAE482-1CED-45B9-B198-86E3686DB32A}
-		{0BCB7846-3A84-4DE6-B246-0CB1C9041822} = {583B8941-1480-4E0E-BC0A-FF93DFA64EAF}
 		{4F3A8A30-AEC7-41C1-B02E-29DB2CD38460} = {F7398DCF-6CC1-41A8-AA75-839820F962A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

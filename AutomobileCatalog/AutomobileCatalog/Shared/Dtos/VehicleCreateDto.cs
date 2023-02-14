@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace AutomobileCatalog.Shared.Dtos
 {
-    public class VehicleReadDto
+    public class VehicleCreateDto
     {
-        public int Id { get; set; }
-        public Model? VehicleModel { get; set; }
+        public int VehicleModelId { get; set; }
 
         public double EngineCapacity { get; set; }
 
-        public virtual ICollection<Price>? Price { get; set; }
+        public int PriceId { get; set; }
 
         public string? Description { get; set; }
     }

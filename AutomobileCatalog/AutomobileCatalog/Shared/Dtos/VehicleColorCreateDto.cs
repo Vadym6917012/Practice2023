@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace AutomobileCatalog.Shared.Dtos
 {
-    public class VehicleColorReadDto
+    public class VehicleColorCreateDto
     {
-        public int Id { get; set; }
         public string? Name { get; set; }
     }
 }

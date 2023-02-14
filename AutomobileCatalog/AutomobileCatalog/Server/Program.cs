@@ -2,6 +2,7 @@ using AutomobileCatalog.Server.Core;
 using AutomobileCatalog.Server.Infrastructure;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,9 +17,32 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddAutoMapper(typeof(AppAutoMapper).Assembly);
 
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Automobile Catalog API",
+        Description = "Practice 2023",
+        Contact = new Microsoft.OpenApi.Models.OpenApiContact
+        {
+            Email = "vadym.radchuk@oa.edu.ua",
+            Name = "Vadym Radchuk"
+        }
+    });
+});
 
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddScoped<MakeRepository>();
+builder.Services.AddScoped<ModelRepository>();
+builder.Services.AddScoped<PriceRepository>();
+builder.Services.AddScoped<VehicleRepository>();
+builder.Services.AddScoped<VehicleColorRepository>();
+
+builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 
 var app = builder.Build();
 

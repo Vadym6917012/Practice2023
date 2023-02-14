@@ -12,12 +12,13 @@ namespace AutomobileCatalog.Server.Core
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public int Id { get; set; }
         public string? Name { get; set; }
 
+        public int MakeId { get; set; }
         public Make? Make { get; set; }
 
+        public int VehicleColorId { get; set; }
         public VehicleColor? VehicleColor { get; set; }
 
         public virtual ICollection<Vehicle>? Vehicles { get;}

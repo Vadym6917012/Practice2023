@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -24,7 +25,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\AutomobileCatalog.Server.Core\AutomobileCatalog.Server.Core.csproj" />
     <ProjectReference Include="..\..\AutomobileCatalog.Server.Infrastructure\AutomobileCatalog.Server.Infrastructure.csproj" />
-    <ProjectReference Include="..\Client\AutomobileCatalog.Client.csproj" />
     <ProjectReference Include="..\Shared\AutomobileCatalog.Shared.csproj" />
   </ItemGroup>
 

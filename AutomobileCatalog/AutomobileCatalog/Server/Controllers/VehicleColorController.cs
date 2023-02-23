@@ -21,26 +21,34 @@ namespace AutomobileCatalog.Server.Controllers
             return await _vehicleColorRepository.GetListAsync();
         }
 
-        [HttpGet("id")]
-        public async Task<VehicleColorReadDto> GetColorById(int id)
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<VehicleColorReadDto> GetColorById([FromRoute] int id)
         {
             return await _vehicleColorRepository.GetColorByIdAsync(id);
         }
 
-        [HttpGet("name")]
-        public async Task<VehicleColorReadDto> GetColorByName(string name)
+        [HttpGet]
+        [Route("{name}")]
+        public async Task<int> GetColorByName(string name)
         {
             return await _vehicleColorRepository.GetColorByNameAsync(name);
         }
 
         [HttpPost]
-        public async Task<int> AddAsync(VehicleColorCreateDto colorDto)
+        public async Task<string> AddAsync(VehicleColorCreateDto colorDto)
         {
-            return await _vehicleColorRepository.AddAsync(colorDto);
+			var item = _vehicleColorRepository.GetColorByNameAsync(colorDto.Name);
+
+            if (item != null)
+                return $"This name is exist";
+            
+			return await _vehicleColorRepository.AddAsync(colorDto);
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteAsync(int id)
+        [Route("{id:int}")]
+        public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
             var item = _vehicleColorRepository.GetColorById(id);
 
@@ -52,7 +60,8 @@ namespace AutomobileCatalog.Server.Controllers
             return NoContent();
         }
 
-        [HttpPut("id")]
+        [HttpPut]
+        [Route("{id}")]
         public async Task UpdateAsync(int id, VehicleColorCreateDto colorDto)
         {
             await _vehicleColorRepository.UpdateAsync(id, colorDto);

@@ -31,9 +31,11 @@ namespace AutomobileCatalog.Server.Infrastructure
             return _mapper.Map<VehicleColorReadDto>(await _ctx.VehicleColors.FirstOrDefaultAsync(x => x.Id == id));
         }
 
-        public async Task<VehicleColorReadDto> GetColorByNameAsync(string name)
+        public async Task<int> GetColorByNameAsync(string name)
         {
-            return _mapper.Map<VehicleColorReadDto>(await _ctx.VehicleColors.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower()));
+            var entity = await _ctx.VehicleColors.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
+
+            return entity.Id;
         }
 
         public VehicleColor GetColorById(int id)
@@ -41,13 +43,13 @@ namespace AutomobileCatalog.Server.Infrastructure
             return _ctx.VehicleColors.FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task<int> AddAsync (VehicleColorCreateDto colorDto)
+        public async Task<string> AddAsync (VehicleColorCreateDto colorDto)
         {
             var entity = await _ctx.VehicleColors.AddAsync(_mapper.Map<VehicleColor>(colorDto));
 
             await _ctx.SaveChangesAsync();
 
-            return entity.Entity.Id;
+            return $"{entity.Entity.Name} created";
         }
 
         public async Task DeleteAsync(int id)

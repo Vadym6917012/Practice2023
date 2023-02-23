@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Car color</h1>
+
+    <div class="colors-container">
+        <div class="colors-form">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="">Color name</label>
+                    <input type="text" name="name" [(ngModel)]="color.name">
+                </div>
+                <div class="form-group">
+                      <button>Save</button>
+                </div>
+            </form>
+        </div>
+        <div class="colors-grid">
+            <div class="color-row" *ngFor="let color of colors">
+                <div class="color-row details">
+                    <span>{{ color.name }}</span>
+                </div>
+                <div class="color-row-action">
+                    <a (click)="deleteColor(color.id)"><i class="fa-solid fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

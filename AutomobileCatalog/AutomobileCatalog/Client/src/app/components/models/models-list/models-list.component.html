@@ -1,0 +1,25 @@
+<div class="container my-5">
+    <h1 class="mb-3">Models</h1>
+    <table class="table" *ngIf="models && models.length > 0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>MakeId</th>
+                <th>ColorId</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let model of models">
+                <td>{{model.id}}</td>
+                <td>{{model.name}}</td>
+                <td>{{model.make.name}}</td>
+                <td>{{model.vehicleColor.name}}</td>
+                <td><a class="btn btn-warning" [routerLink]="['/models', 'edit', model.id]">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!models || models.length <= 0">No Models Found</p>
+    <a class="btn btn-dark" [routerLink]="['/models', 'add']">Add new model</a>
+</div>

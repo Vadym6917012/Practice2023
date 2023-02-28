@@ -21,7 +21,8 @@ namespace AutomobileCatalog.Server.Controllers
             return await _vehicleRepository.GetListAsync();
         }
 
-        [HttpGet("id")]
+        [HttpGet]
+        [Route("{id:int}")]
         public async Task<VehicleReadDto> GetVehicleByIdAsync(int id)
         {
             return await _vehicleRepository.GetVehicleByIdAsync(id);
@@ -33,7 +34,8 @@ namespace AutomobileCatalog.Server.Controllers
             return await _vehicleRepository.AddAsync(vehicleDto);
         }
 
-        [HttpDelete("id")]
+        [HttpDelete]
+        [Route("{id:int}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var item = _vehicleRepository.GetVehicleById(id);
@@ -46,7 +48,8 @@ namespace AutomobileCatalog.Server.Controllers
             return NoContent();
         }
 
-        [HttpPut("id")]
+        [HttpPut]
+        [Route("{id:int}")]
         public async Task<IActionResult> UpdateAsync(int id, VehicleCreateDto vehicleDto)
         {
             var item = _vehicleRepository.GetVehicleById(id);

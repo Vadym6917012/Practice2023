@@ -22,7 +22,7 @@ namespace AutomobileCatalog.Server.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("{id:int}")]
         public async Task<VehicleColorReadDto> GetColorById([FromRoute] int id)
         {
             return await _vehicleColorRepository.GetColorByIdAsync(id);
@@ -36,13 +36,8 @@ namespace AutomobileCatalog.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<string> AddAsync(VehicleColorCreateDto colorDto)
+        public async Task<int> AddAsync(VehicleColorCreateDto colorDto)
         {
-			var item = _vehicleColorRepository.GetColorByNameAsync(colorDto.Name);
-
-            if (item != null)
-                return $"This name is exist";
-            
 			return await _vehicleColorRepository.AddAsync(colorDto);
         }
 
@@ -61,7 +56,7 @@ namespace AutomobileCatalog.Server.Controllers
         }
 
         [HttpPut]
-        [Route("{id}")]
+        [Route("{id:int}")]
         public async Task UpdateAsync(int id, VehicleColorCreateDto colorDto)
         {
             await _vehicleColorRepository.UpdateAsync(id, colorDto);

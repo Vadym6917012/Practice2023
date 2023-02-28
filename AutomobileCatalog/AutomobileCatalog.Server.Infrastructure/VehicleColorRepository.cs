@@ -2,11 +2,6 @@
 using AutomobileCatalog.Server.Core;
 using AutomobileCatalog.Shared.Dtos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutomobileCatalog.Server.Infrastructure
 {
@@ -43,13 +38,13 @@ namespace AutomobileCatalog.Server.Infrastructure
             return _ctx.VehicleColors.FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task<string> AddAsync (VehicleColorCreateDto colorDto)
+        public async Task<int> AddAsync (VehicleColorCreateDto colorDto)
         {
             var entity = await _ctx.VehicleColors.AddAsync(_mapper.Map<VehicleColor>(colorDto));
 
             await _ctx.SaveChangesAsync();
 
-            return $"{entity.Entity.Name} created";
+            return entity.Entity.Id;
         }
 
         public async Task DeleteAsync(int id)

@@ -1,0 +1,71 @@
+<div class="container my-5">
+    <h1 class="mb-3">Cars</h1>
+    <section class="filter">
+        <form action="/Home/Filter" class="search-banner text-white pm-5" enctype="multipart/form-data" method="post" id="search-banner">
+            <div class="container">
+                <div class="row pb-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group ">
+                                            <select
+                                            for="modelId"
+                                            name="modelId"
+                                            class="form-select"
+                                            id="modelId" required>
+                                                <option selected disabled>Model</option>
+                                                <option *ngFor="let model of models" [value]="model.id">{{model.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group ">
+                                            <select
+                                            name="colorId" 
+                                            class="form-control">
+                                                <option selected>Color</option>
+                                                <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="submit" class="btn btn-dark">Search Car</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    
+    <section class="table">
+        <table class="table" *ngIf="cars && cars.length > 0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Engine Capacity</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let car of cars">
+                    <td>{{car.id}}</td>
+                    <td>{{car.vehicleModel.name}}</td>
+                    <td>{{car.engineCapacity}}</td>
+                    <td>{{car.price[2]}}</td>
+                    <td>{{car.description}}</td>
+                    <td><a class="btn btn-warning" [routerLink]="['/cars', 'edit', car.id]">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <p *ngIf="!cars || cars.length <= 0">No Cars Found</p>
+        <a class="btn btn-dark" [routerLink]="['/cars', 'add']">Add new car</a>
+    </section>
+</div>

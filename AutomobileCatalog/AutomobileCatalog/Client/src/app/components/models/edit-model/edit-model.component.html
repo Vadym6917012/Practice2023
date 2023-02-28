@@ -1,0 +1,46 @@
+<div class="container my-5">
+    <h1 class="mb-3">Edit Model</h1>
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="updateModel()">
+                <div class="mb-3">
+                    <label for="id" class="form-label">Id</label>
+                    <input type="text" class="form-control" id="id" readonly
+                    name="id" [(ngModel)]="modelDetails.id">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" 
+                    name="name" [(ngModel)]="modelDetails.name">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Make</label>
+                    <select
+                    for="makeId"
+                    name="makeId"
+                    class="form-select"
+                    [(ngModel)]="modelDetails.makeId"
+                    id="makeId">
+                    <option selected [disabled]="true">Select make</option>
+                    <option *ngFor="let make of makes" [value]="make.id">{{make.name}}</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Color</label>
+                    <select
+                    for="vehicleColorId"
+                    name="vehicleColorId" 
+                    class="form-select"
+                    [(ngModel)]="modelDetails.vehicleColorId" id="vehicleColorId">
+                    <option selected [disabled]="true">Select color</option>
+                    <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
+                  </select>
+                </div>
+                <div class="col-xs-3">
+                    <button type="submit" class="btn btn-primary me-1">Save</button>
+                    <button type="button" (click)="deleteModel(modelDetails.id)" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

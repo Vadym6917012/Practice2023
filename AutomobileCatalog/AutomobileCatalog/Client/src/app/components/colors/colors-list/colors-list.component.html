@@ -1,0 +1,21 @@
+<div class="container my-5">
+    <h1 class="mb-3">Colors</h1>
+    <table class="table" *ngIf="colors && colors.length > 0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let color of colors">
+                <td>{{color.id}}</td>
+                <td>{{color.name}}</td>
+                <td><a class="btn btn-warning" [routerLink]="['/colors', 'edit', color.id]">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!colors || colors.length <= 0">No Colors Found</p>
+    <a class="btn btn-dark" [routerLink]="['/colors', 'add']">Add new color</a>
+</div>

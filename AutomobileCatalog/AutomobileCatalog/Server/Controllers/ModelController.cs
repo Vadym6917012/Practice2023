@@ -28,14 +28,16 @@ namespace AutomobileCatalog.Server.Controllers
             return await _modelRepository.GetListAsync();
         }
 
-        [HttpGet("id")]
-        public async Task<ModelReadDto> GetModelById(int id)
+        [HttpGet]
+		[Route("{id:int}")]
+		public async Task<ModelReadDto> GetModelById(int id)
         {
             return await _modelRepository.GetModelByIdAsync(id);
         }
 
-        [HttpGet("name")]
-        public async Task<ModelReadDto> GetModelByName(string name)
+        [HttpGet]
+		[Route("{name}")]
+		public async Task<ModelReadDto> GetModelByName(string name)
         {
             return await _modelRepository.GetModelByNameAsync(name);
         }
@@ -46,8 +48,9 @@ namespace AutomobileCatalog.Server.Controllers
             return await _modelRepository.AddAsync(modelDto);
         }
 
-        [HttpDelete("id")]
-        public async Task<IActionResult> DeleteAsync(int id)
+        [HttpDelete]
+		[Route("{id:int}")]
+		public async Task<IActionResult> DeleteAsync(int id)
         {
             var item = await _ctx.Models.FindAsync(id);
 
@@ -59,8 +62,9 @@ namespace AutomobileCatalog.Server.Controllers
             return NoContent();
         }
 
-        [HttpPut("id")]
-        public async Task UpdateAsync(int id, ModelCreateDto modelDto)
+        [HttpPut]
+		[Route("{id:int}")]
+		public async Task UpdateAsync(int id, ModelCreateDto modelDto)
         {
             await _modelRepository.UpdateAsync(id, modelDto);
         }

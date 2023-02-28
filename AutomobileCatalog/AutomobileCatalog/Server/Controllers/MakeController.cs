@@ -24,13 +24,15 @@ namespace AutomobileCatalog.Server.Controllers
             return await _makeRepository.GetListAsync();
         }
 
-        [HttpGet("id")]
+        [HttpGet]
+        [Route("{id:int}")]
         public async Task<MakeReadDto> GetMakeByIdAsync(int id)
         {
             return await _makeRepository.GetMakeByIdAsync(id);
         }
 
-        [HttpGet("name")]
+        [HttpGet]
+        [Route("{name}")]
         public async Task<MakeReadDto> GetMakeByName(string name)
         {
             return await _makeRepository.GetMakeByNameAsync(name);
@@ -42,7 +44,8 @@ namespace AutomobileCatalog.Server.Controllers
             return await _makeRepository.AddAsync(makeDto);
         }
 
-        [HttpDelete("id")]
+        [HttpDelete]
+        [Route("{id:int}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var item = await _ctx.Makes.FindAsync(id);
@@ -55,7 +58,8 @@ namespace AutomobileCatalog.Server.Controllers
             return NoContent();
         }
 
-        [HttpPut("id")]
+        [HttpPut]
+        [Route("{id:int}")]
         public async Task UpdateAsync(MakeCreateDto makeDto, int id)
         {
             await _makeRepository.UpdateAsync(makeDto, id);

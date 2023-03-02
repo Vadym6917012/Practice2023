@@ -1,226 +1,96 @@
-.search-box {
-    position: relative;
-    display: block;
-    padding: 0 0 0;
-    margin-top: -230px;
-    z-index: 2;
+#ads {
+    margin: 30px 0 30px 0;
 }
 
-.search-box__container {
-    position: relative;
-    display: block;
-    background-color: var(--bs-primary);
-    max-width: 1030px;
-    width: 100%;
-    padding: 60px 60px 60px;
-    margin: 0 auto;
-    border-radius: var(--bs-border-radius);
+.img-fluid{
+    width: 450px;
+    height: 250px;
 }
 
-.search-box__form {
-    position: relative;
-    display: block;
-}
-
-.search-box__main {
-    position: relative;
-    display: block;
-}
-
-.search-box__input {
-    position: relative;
-    float: left;
-    max-width: 290px;
-    width: 100%;
-    margin-bottom: 20px;
-    margin-right: 20px;
-}
-
-.search-box__input:nth-child(3) {
-    margin-right: 0;
-}
-
-.search-box__input:nth-child(4) {
-    margin-bottom: 0;
-}
-
-.search-box__input:nth-child(5) {
-    margin-bottom: 0;
-}
-
-.search-box__input:nth-child(6) {
-    margin-bottom: 0;
-    margin-right: 0;
-}
-
-.search-box__icon-box {
+#ads .card-notify-badge {
     position: absolute;
-    top: 50%;
-    bottom: 0;
-    right: 30px;
-    transform: translateY(-50%);
-}
-
-.search-box__icon-box i {
-    font-size: 15px;
-    color: var(--bs-gray);
-}
-
-.search-box .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
-    position: relative;
-    display: block;
-    width: 290px !important;
-
-}
-
-.search-box .bootstrap-select>.dropdown-toggle::after {
-    display: none;
-}
-
-.search-box .bootstrap-select>.dropdown-toggle {
-    height: 75px;
-    outline: none !important;
-    border-radius: var(--bs-border-radius);
-    border: 0;
-    background-color: #ffffff !important;
-    margin: 0;
-    padding: 0;
-    padding-left: 30px;
-    padding-right: 30px;
-    color: var(--bs-gray) !important;
-    font-size: 16px;
-    line-height: 75px;
-    font-weight: 400;
-    box-shadow: none !important;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-size: 16px 12px;
-    background-position: right 25.75px center;
-
-}
-
-.search-box__input input[type="text"] {
-    width: 100%;
-    height: 75px;
-    border: none;
-    outline: none;
-    border-radius: var(--bs-border-radius);
-    font-size: 16px;
-    color: var(--bs-gray);
-    font-weight: 400;
-    padding: 0 30px;
-}
-
-.search-box__btn {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    color: var(--bs-base);
-    font-weight: 700;
-    background-color: var(--bs-black);
-    padding: 20.5px 90px;
-    border-radius: var(--bs-border-radius);
-    transition: all 500ms ease;
-}
-
-.search-box__input button:focus {
-    outline: none;
-}
-
-.search-box__btn:hover {
-    background-color: var(--bs-base);
-    color: var(--bs-primary);
-}
-
-
-#ui-datepicker-div.ui-widget-content {
-    background: #fff none repeat scroll 0 0;
-    border: 1px solid var(--bs-black);
-    color: #252525;
+    left: -10px;
+    top: -20px;
+    background: #f2d900;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color: #000;
+    padding: 5px 10px;
     font-size: 14px;
-    border-radius: 0px;
-    width: 270px;
-    padding: 5px;
 }
 
-#ui-datepicker-div.ui-datepicker .ui-datepicker-header {
-    background: var(--bs-primary) none repeat scroll 0 0;
-    border: 2px solid var(--bs-primary);
-    border-radius: 0;
-    color: var(--bs-base);
-    font-weight: 700;
-    padding: 5px 0;
-    position: relative;
-}
-
-.ui-datepicker td a {
-    color: #000000 !important;
-    text-align: center;
-    background-image: none !important;
-    background: #f5f5f5 !important;
-    border: 1px solid #f9f9f9 !important;
-}
-
-.ui-state-highlight,
-.ui-widget-content .ui-state-highlight,
-.ui-widget-header .ui-state-highlight {
-    border: 1px solid #333333 !important;
-    background: #333333 !important;
-    color: #ffffff !important;
-}
-
-.ui-datepicker .ui-datepicker-prev {
-    left: 5px;
-}
-
-.ui-datepicker .ui-datepicker-prev,
-.ui-datepicker .ui-datepicker-next {
-    border-radius: 30%;
-    height: 20px;
+#ads .card-notify-year {
     position: absolute;
-    top: 7px;
-    width: 20px;
-    transition: all 500ms ease;
-    cursor: pointer;
-}
-
-.ui-datepicker .ui-datepicker-next {
-    right: 5px;
-}
-
-.ui-datepicker .ui-datepicker-prev:hover,
-.ui-datepicker .ui-datepicker-next:hover {
-    top: 7px;
-    background: #fff;
-    border: none;
-}
-
-.ui-datepicker table {
-    border-collapse: collapse;
-    font-size: 13px;
-    margin: 0 0 0.4em;
-    width: 100%;
-}
-
-.ui-datepicker th {
-    border: medium none;
-    font-weight: 600;
-    padding: 2px 3px;
+    right: -10px;
+    top: -20px;
+    background: #ff4444;
+    border-radius: 50%;
     text-align: center;
-}
-
-.ui-datepicker-calendar .ui-state-default:hover,
-.ui-datepicker-calendar .ui-state-default:active {
-    background: #43c3ea;
     color: #fff;
-    border-color: #43c3ea;
+    font-size: 14px;
+    width: 50px;
+    height: 50px;
+    padding: 15px 0 0 0;
 }
 
-#ui-datepicker-div.ui-widget {
-    font-family: var(--bs-font);
+
+#ads .card-detail-badge {
+    background: #f2d900;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color: #000;
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
-#ptTimeSelectCntr .ui-widget {
-    font-family: var(--bs-font);
+
+
+#ads .card:hover {
+    background: #fff;
+    box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+#ads .card-image-overlay {
+    font-size: 20px;
+
+}
+
+
+#ads .card-image-overlay span {
+    display: inline-block;
+}
+
+
+#ads .ad-btn {
+    text-transform: uppercase;
+    width: 150px;
+    height: 40px;
+    border-radius: 80px;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+    border: 3px solid #e6de08;
+    display: block;
+    text-decoration: none;
+    margin: 20px auto 1px auto;
+    color: #000;
+    overflow: hidden;
+    position: relative;
+    background-color: #e6de08;
+}
+
+#ads .ad-btn:hover {
+    background-color: #e6de08;
+    color: #1e1717;
+    border: 2px solid #e6de08;
+    background: transparent;
+    transition: all 0.3s ease;
+    box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+}
+
+#ads .ad-title h5 {
+    text-transform: uppercase;
+    font-size: 18px;
 }

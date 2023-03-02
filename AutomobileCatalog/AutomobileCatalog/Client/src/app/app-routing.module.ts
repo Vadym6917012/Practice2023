@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCarComponent } from './components/cars/add-car/add-car.component';
+import { CarDetailsComponent } from './components/cars/car-details/car-details.component';
 import { CarsListComponent } from './components/cars/cars-list/cars-list.component';
 import { EditCarComponent } from './components/cars/edit-car/edit-car.component';
 import { AddColorComponent } from './components/colors/add-color/add-color.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'models/add', component: AddModelComponent },
   { path: 'models/edit/:id', component: EditModelComponent },
   { path: 'cars', component: CarsListComponent },
+  { path: 'cars/details/:id', component: CarDetailsComponent },
   { path: 'cars/add', component: AddCarComponent} ,
   { path: 'cars/edit/:id', component: EditCarComponent },
   { path: '', redirectTo: 'cars', pathMatch: 'full' },

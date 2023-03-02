@@ -13,6 +13,8 @@ namespace AutomobileCatalog.Shared.Dtos
 
         public double EngineCapacity { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         public int PriceId { get; set; }
 
         public string? Description { get; set; }

@@ -27,26 +27,5 @@ namespace AutomobileCatalog.Server.Controllers
         {
             return await _priceRepository.GetPriceByIdAsync(id);
         }
-
-        [HttpGet]
-		[Route("{Date}")]
-		public async Task<PriceReadDto> GetPriceByDateAsync(DateTime userTime)
-        {
-            return await _priceRepository.GetPriceByDateAsync(userTime);
-        }
-
-        [HttpGet]
-		[Route("{value}")]
-		public async Task<PriceReadDto> GetPriceByValue(decimal value)
-        {
-            return await _priceRepository.GetPriceByValue(value);
-        }
-
-        [HttpGet]
-		[Route("{from to}")]
-		public async Task<PriceReadDto> GetPriceFromTo(DateTime from, DateTime to)
-        {
-            return await _priceRepository.GetPriceByDateFromTo(from, to);
-        }
     }
 }

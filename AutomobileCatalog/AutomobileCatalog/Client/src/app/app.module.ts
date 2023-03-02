@@ -21,6 +21,8 @@ import { AddMakeComponent } from './components/makes/add-make/add-make.component
 import { EditMakeComponent } from './components/makes/edit-make/edit-make.component';
 import { MakesListComponent } from './components/makes/makes-list/makes-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CarDetailsComponent } from './components/cars/car-details/car-details.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +43,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     EditMakeComponent,
     MakesListComponent,
     PageNotFoundComponent,
+    CarDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

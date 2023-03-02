@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -33,5 +33,18 @@ export class CarsService {
 
   getCar(id: number): Observable<Car> {
     return this.http.get<Car>(this.baseUrl + '/api/vehicle/' + id);
+  }
+
+  uploadFile(file: Blob): Observable<HttpEvent<void>> {
+    const formData = new FormData();
+    formData.append('file', file);
+  
+    return this.http.request(new HttpRequest(
+      'POST',
+      this.baseUrl + '/api/vehicle/uploadfile',
+      formData,
+      {
+        reportProgress: true
+      }));
   }
 }

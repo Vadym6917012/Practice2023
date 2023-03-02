@@ -30,20 +30,5 @@ namespace AutomobileCatalog.Server.Infrastructure
         {
             return _mapper.Map<PriceReadDto>(await _ctx.Prices.FirstOrDefaultAsync(x => x.Id == id));
         }
-
-        public async Task<PriceReadDto> GetPriceByDateAsync(DateTime userTime)
-        {
-            return _mapper.Map<PriceReadDto>(await _ctx.Prices.FirstOrDefaultAsync(x => x.InitialPriceDate == userTime));
-        }
-
-        public async Task<PriceReadDto> GetPriceByDateFromTo(DateTime from, DateTime to)
-        {
-            return _mapper.Map<PriceReadDto>(_ctx.Prices.Where(x => x.InitialPriceDate == from || x.InitialPriceDate == to).ToList());
-        }
-
-        public async Task<PriceReadDto> GetPriceByValue(decimal value)
-        {
-            return _mapper.Map<PriceReadDto>(await _ctx.Prices.FirstOrDefaultAsync(x => x.Value == value));
-        }
     }
 }

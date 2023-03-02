@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Car } from 'src/app/models/car.model';
 import { Color } from 'src/app/models/color.model';
+import { Make } from 'src/app/models/make.model';
 import { Model } from 'src/app/models/model.model';
 import { CarsService } from 'src/app/services/cars.service';
 import { ColorsService } from 'src/app/services/colors.service';
+import { MakesService } from 'src/app/services/make.service';
 import { ModelsService } from 'src/app/services/models.service';
 
 @Component({
@@ -12,17 +14,29 @@ import { ModelsService } from 'src/app/services/models.service';
   styleUrls: ['./cars-list.component.css']
 })
 export class CarsListComponent implements OnInit {
+  makes: Make[] = [];
   models: Model[] = [];
   colors: Color[] = [];
   cars: Car[] = [];
 
-  constructor(private carsService: CarsService, private modelsService: ModelsService, private colorsService: ColorsService) {}
+  searchText = " ";
+
+  constructor(private carsService: CarsService,private makesService: MakesService, private modelsService: ModelsService, private colorsService: ColorsService) {}
 
   ngOnInit() : void {
     this.carsService.getAllCars()
     .subscribe({
       next: (cars) => {
         this.cars = cars;
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    });
+    this.makesService.getAllMakes()
+    .subscribe({
+      next: (makes) => {
+        this.makes = makes;
       },
       error: (response) => {
         console.log(response);

@@ -9,29 +9,9 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <div class="form-group ">
-                                            <select
-                                            for="modelId"
-                                            name="modelId"
-                                            class="form-select"
-                                            id="modelId" required>
-                                                <option selected disabled>Model</option>
-                                                <option *ngFor="let model of models" [value]="model.id">{{model.name}}</option>
-                                            </select>
+                                        <div class="form-group">
+                                            <input type="text" aria-label="Search" name="search" placeholder="Пошук" [(ngModel)]="searchText" autocomplete="off" class="form-control">
                                         </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group ">
-                                            <select
-                                            name="colorId" 
-                                            class="form-control">
-                                                <option selected>Color</option>
-                                                <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button type="submit" class="btn btn-dark">Search Car</button>
                                     </div>
                                 </div>
                             </div>
@@ -42,30 +22,21 @@
         </form>
     </section>
     
-    <section class="table">
-        <table class="table" *ngIf="cars && cars.length > 0">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Engine Capacity</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th>Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let car of cars">
-                    <td>{{car.id}}</td>
-                    <td>{{car.vehicleModel.name}}</td>
-                    <td>{{car.engineCapacity}}</td>
-                    <td>{{car.price[2]}}</td>
-                    <td>{{car.description}}</td>
-                    <td><a class="btn btn-warning" [routerLink]="['/cars', 'edit', car.id]">Edit</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <p *ngIf="!cars || cars.length <= 0">No Cars Found</p>
-        <a class="btn btn-dark" [routerLink]="['/cars', 'add']">Add new car</a>
+    <section class="car-cads" *ngIf="cars && cars.length > 0">
+        <div class="row" id="ads">
+            <div class="col-md-4 mb-3" *ngFor="let car of cars | filter :searchText.toLowerCase()"><a href="/cars/details/{{car.id}}">
+                <div class="card rounded">
+                    <div class="card-image">
+                        <span class="card-notify-year">2018</span>
+                        <img class="img-fluid" src="{{car.imageUrl}}" alt="Alternate Text" />
+                    </div>
+                    <div class="card-image-overlay m-auto">
+                        <span class="card-detail-badge">{{car.vehicleModel.make.name}}</span>
+                        <span class="card-detail-badge">{{car.vehicleModel.name}}</span>
+                    </div>
+                </div>
+            </a></div>
+        </div>
     </section>
+        <p *ngIf="!cars || cars.length <= 0">No Cars Found</p>
 </div>

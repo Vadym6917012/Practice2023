@@ -12,6 +12,7 @@ namespace AutomobileCatalog.Shared.Dtos
         public int Id { get; set; }
         public Model? VehicleModel { get; set; }
 
+        public string? ImageUrl { get; set; }
         public double EngineCapacity { get; set; }
 
         public virtual ICollection<Price>? Price { get; set; }

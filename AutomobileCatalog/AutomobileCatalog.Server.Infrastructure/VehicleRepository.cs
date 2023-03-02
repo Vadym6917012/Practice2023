@@ -2,11 +2,7 @@
 using AutomobileCatalog.Server.Core;
 using AutomobileCatalog.Shared.Dtos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AutomobileCatalog.Server.Infrastructure
 {
@@ -31,17 +27,22 @@ namespace AutomobileCatalog.Server.Infrastructure
 
         public async Task<VehicleReadDto> GetVehicleByIdAsync(int id)
         {
-            return _mapper.Map<VehicleReadDto>(await _ctx.Vehicles.Include(x => x.VehicleModel).Include(x => x.Price).FirstOrDefaultAsync(x => x.Id == id));
+            return _mapper.Map<VehicleReadDto>(await _ctx.Vehicles.Include(x => x.VehicleModel)
+                .ThenInclude(x => x.VehicleColor)
+                .Include(x => x.VehicleModel)
+                .ThenInclude(x => x.Make)
+                .Include(x => x.Price)
+                .FirstOrDefaultAsync(x => x.Id == id));
         }
 
         public Vehicle GetVehicleById(int id)
         {
-            return _ctx.Vehicles.Include(x => x.VehicleModel).Include(x => x.Price).FirstOrDefault(x => x.Id == id);
+            return _ctx.Vehicles.Include(x => x.VehicleModel).ThenInclude(x => x.Make).Include(x => x.Price).FirstOrDefault(x => x.Id == id);
         }
 
         public async Task<int> AddAsync(VehicleCreateDto vehicleDto)
         {
-            var entity = await _ctx.Vehicles.AddAsync(_mapper.Map<Vehicle>(vehicleDto));
+			var entity = await _ctx.Vehicles.AddAsync(_mapper.Map<Vehicle>(vehicleDto));
 
             _ctx.SaveChanges();
 
@@ -63,6 +64,8 @@ namespace AutomobileCatalog.Server.Infrastructure
                 vehicle.VehicleModel = _ctx.Models.FirstOrDefault(x => x.Id == vehicleDto.VehicleModelId);
             if (vehicle.EngineCapacity != vehicleDto.EngineCapacity)
                 vehicle.EngineCapacity = vehicleDto.EngineCapacity;
+            if (vehicle.ImageUrl != vehicleDto.ImageUrl)
+                vehicle.ImageUrl = vehicleDto.ImageUrl;
             //if (vehicle.PriceId != vehicleDto.PriceId)
             //    vehicle.Price = _ctx.Prices.FirstOrDefault(x => x.Id == vehicleDto.PriceId);
             if (vehicle.Description != vehicleDto.Description)

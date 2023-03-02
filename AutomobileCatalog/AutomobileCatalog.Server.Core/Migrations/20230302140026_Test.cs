@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AutomobileCatalog.Server.Core.Migrations
 {
     /// <inheritdoc />
-    public partial class Test1 : Migration
+    public partial class Test : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -74,6 +74,7 @@ namespace AutomobileCatalog.Server.Core.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VehicleModelId = table.Column<int>(type: "int", nullable: false),
                     EngineCapacity = table.Column<double>(type: "float", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PriceId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -116,7 +117,11 @@ namespace AutomobileCatalog.Server.Core.Migrations
                 {
                     { 1, "BMW" },
                     { 2, "Mercedes" },
-                    { 3, "Toyota" }
+                    { 3, "Toyota" },
+                    { 4, "Alfa Romeo" },
+                    { 5, "Alphina" },
+                    { 6, "Audi" },
+                    { 7, "Acura" }
                 });
 
             migrationBuilder.InsertData(
@@ -134,16 +139,32 @@ namespace AutomobileCatalog.Server.Core.Migrations
                 values: new object[,]
                 {
                     { 1, 2, "e220", 1 },
-                    { 2, 1, "e39", 2 }
+                    { 2, 1, "e39", 2 },
+                    { 3, 2, "190", 2 },
+                    { 4, 2, "230 Pullman", 1 },
+                    { 5, 2, "A-Class", 1 },
+                    { 6, 2, "AMG GT", 1 },
+                    { 7, 2, "AMG GT 4-Door Coupe", 1 },
+                    { 8, 2, "B-Class", 1 },
+                    { 9, 2, "C-Class", 1 },
+                    { 10, 2, "C-Class All-Terrain", 1 },
+                    { 11, 2, "Citan", 1 },
+                    { 12, 2, "CL-Class", 1 },
+                    { 13, 2, "CLA-Class", 1 },
+                    { 14, 2, "CLC-Class", 1 },
+                    { 15, 2, "CLK-Class", 1 },
+                    { 16, 2, "CLS-Class", 1 },
+                    { 17, 2, "G-Class", 1 },
+                    { 18, 3, "Camry", 1 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Vehicles",
-                columns: new[] { "Id", "Description", "EngineCapacity", "PriceId", "VehicleModelId" },
+                columns: new[] { "Id", "Description", "EngineCapacity", "ImageUrl", "PriceId", "VehicleModelId" },
                 values: new object[,]
                 {
-                    { 1, "The best car", 2.0, 1, 1 },
-                    { 2, "Test description", 1.6000000000000001, 2, 2 }
+                    { 1, "The best car", 2.0, null, 1, 1 },
+                    { 2, "Test description", 1.6000000000000001, null, 2, 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -151,8 +172,8 @@ namespace AutomobileCatalog.Server.Core.Migrations
                 columns: new[] { "Id", "InitialPriceDate", "Value", "VehicleId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 2, 11, 12, 13, 59, 323, DateTimeKind.Local).AddTicks(1836), 19000m, 1 },
-                    { 2, new DateTime(2023, 2, 11, 12, 13, 59, 323, DateTimeKind.Local).AddTicks(1867), 15000m, 2 }
+                    { 1, new DateTime(2023, 3, 2, 16, 0, 26, 406, DateTimeKind.Local).AddTicks(3762), 19000m, 1 },
+                    { 2, new DateTime(2023, 3, 2, 16, 0, 26, 406, DateTimeKind.Local).AddTicks(3812), 15000m, 2 }
                 });
 
             migrationBuilder.CreateIndex(

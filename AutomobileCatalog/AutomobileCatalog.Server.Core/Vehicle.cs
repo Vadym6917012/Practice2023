@@ -18,7 +18,8 @@ namespace AutomobileCatalog.Server.Core
         public Model? VehicleModel { get; set; }
 
         public double EngineCapacity { get; set; }
-
+        public string? ImageUrl { get; set; }
+        
         public int PriceId { get; set; }
         public virtual ICollection<Price>? Price { get; set; }
 

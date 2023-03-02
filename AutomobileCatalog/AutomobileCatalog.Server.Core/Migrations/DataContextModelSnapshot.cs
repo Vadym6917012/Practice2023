@@ -52,6 +52,26 @@ namespace AutomobileCatalog.Server.Core.Migrations
                         {
                             Id = 3,
                             Name = "Toyota"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Alfa Romeo"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Alphina"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Audi"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Acura"
                         });
                 });
 
@@ -94,6 +114,118 @@ namespace AutomobileCatalog.Server.Core.Migrations
                             MakeId = 1,
                             Name = "e39",
                             VehicleColorId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            MakeId = 2,
+                            Name = "190",
+                            VehicleColorId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            MakeId = 2,
+                            Name = "230 Pullman",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            MakeId = 2,
+                            Name = "A-Class",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            MakeId = 2,
+                            Name = "AMG GT",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            MakeId = 2,
+                            Name = "AMG GT 4-Door Coupe",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            MakeId = 2,
+                            Name = "B-Class",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            MakeId = 2,
+                            Name = "C-Class",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            MakeId = 2,
+                            Name = "C-Class All-Terrain",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            MakeId = 2,
+                            Name = "Citan",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 12,
+                            MakeId = 2,
+                            Name = "CL-Class",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 13,
+                            MakeId = 2,
+                            Name = "CLA-Class",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 14,
+                            MakeId = 2,
+                            Name = "CLC-Class",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 15,
+                            MakeId = 2,
+                            Name = "CLK-Class",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 16,
+                            MakeId = 2,
+                            Name = "CLS-Class",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 17,
+                            MakeId = 2,
+                            Name = "G-Class",
+                            VehicleColorId = 1
+                        },
+                        new
+                        {
+                            Id = 18,
+                            MakeId = 3,
+                            Name = "Camry",
+                            VehicleColorId = 1
                         });
                 });
 
@@ -124,14 +256,14 @@ namespace AutomobileCatalog.Server.Core.Migrations
                         new
                         {
                             Id = 1,
-                            InitialPriceDate = new DateTime(2023, 2, 11, 12, 13, 59, 323, DateTimeKind.Local).AddTicks(1836),
+                            InitialPriceDate = new DateTime(2023, 3, 2, 16, 0, 26, 406, DateTimeKind.Local).AddTicks(3762),
                             Value = 19000m,
                             VehicleId = 1
                         },
                         new
                         {
                             Id = 2,
-                            InitialPriceDate = new DateTime(2023, 2, 11, 12, 13, 59, 323, DateTimeKind.Local).AddTicks(1867),
+                            InitialPriceDate = new DateTime(2023, 3, 2, 16, 0, 26, 406, DateTimeKind.Local).AddTicks(3812),
                             Value = 15000m,
                             VehicleId = 2
                         });
@@ -150,6 +282,9 @@ namespace AutomobileCatalog.Server.Core.Migrations
 
                     b.Property<double>("EngineCapacity")
                         .HasColumnType("float");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PriceId")
                         .HasColumnType("int");

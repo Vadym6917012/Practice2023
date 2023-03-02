@@ -30,7 +30,7 @@ export class EditColorComponent implements OnInit {
             });
         }
       }
-    })
+    });
   }
 
   updateColor() {

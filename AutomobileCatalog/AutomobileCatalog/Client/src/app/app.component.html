@@ -9,13 +9,10 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Головна</a>
+                        <a class="nav-link active" aria-current="page" href="/cars">Головна</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/cars">Машини</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/models">Моделі</a>
+                        <a class="nav-link" routerLink="/cars/add">Продати машину</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/makes">Бренди</a>
@@ -25,7 +22,7 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Пошук" aria-label="Search">
+                    <input class="form-control me-2" type="search" autocomplete="off" placeholder="Пошук" [(ngModel)]="term" [ngModelOptions]="{ standalone: true }" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Пошук</button>
                 </form>
             </div>
